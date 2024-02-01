@@ -117,19 +117,19 @@ function App() {
 
   function handleUpdateUser({ email, name }) {
     setIsLoading(true);
-    mainApi
-      .patchUserInfo({ email, name })
+    mainApi.udpateUser( email, name )
       .then(() => {
         setCurrentUser({ email, name });
-        setErrorMessage("Данные успешно обновлены!");
+        setErrorMessage('Данные успешно обновлены!')
       })
       .catch((error) => {
         setErrorMessage(error.message);
       })
       .finally(() => {
         setIsLoading(false);
-      });
+      })
   }
+
 
   function handleSignOut() {
     localStorage.clear();
@@ -232,10 +232,10 @@ function App() {
             path="/profile"
             element={
               <>
-                <ProtectedRoute
+               <ProtectedRoute
                   loggedIn={loggedIn}
                   element={Header}
-                  headerClass={"header"}
+                  headerClass={'header'}
                   onMenuPopup={handleMenuPopupClick}
                 />
                 <ProtectedRoute
@@ -246,7 +246,7 @@ function App() {
                   isLoading={isLoading}
                   errorMessage={errorMessage}
                 />
-              </>
+            </>
             }
           />
 

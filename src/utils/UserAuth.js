@@ -46,7 +46,7 @@ class UserAuth {
 }
 
 const userAuth = new UserAuth({
-  BASE_URL: "https://api.fsashkaff.nomoredomainsmonster.ru",
+  BASE_URL: "http://localhost:3001",
   headers: {
     "Content-Type": "application/json",
   },

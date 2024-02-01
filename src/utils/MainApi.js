@@ -15,97 +15,108 @@ class MainApi {
 
   register(name, email, password) {
     return this._request(`/signup`, {
-      method: "POST",
+      method: 'POST',
       headers: this._headers,
       body: JSON.stringify({
         name: name,
         email: email,
-        password: password,
+        password: password
       }),
     });
   }
 
   login(email, password) {
     return this._request(`/signin`, {
-      method: "POST",
+      method: 'POST',
       headers: this._headers,
       body: JSON.stringify({
         email: email,
-        password: password,
+        password: password
       }),
     });
   }
 
   checkToken(token) {
     return this._request(`/users/me`, {
-      method: "GET",
+      method: 'GET',
       headers: {
         ...this._headers,
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${token}`
       },
     });
   }
 
   getUser(token) {
     return this._request(`/users/me`, {
-      method: "GET",
+      method: 'GET',
       headers: {
         ...this._headers,
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${token}`
       },
     });
   }
 
-  udpateUser(name, email, token) {
+  // patchUserInfo(email, name) {
+  //   return this._request(`/users/me`, {
+  //     method: 'PATCH',
+  //     headers: this._headers,
+  //     body: JSON.stringify({
+  //       name: name,
+  //       email: email
+  //     }),
+  //   });
+  // }
+
+  udpateUser(name, email) {
     return this._request(`/users/me`, {
-      method: "PATCH",
+      method: 'PATCH',
       headers: {
         ...this._headers,
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${localStorage.jwt}`,
       },
       body: JSON.stringify({
         name: name,
-        email: email,
+        email: email
       }),
     });
   }
 
   getMovies(token) {
     return this._request(`/movies`, {
-      method: "GET",
+      method: 'GET',
       headers: {
         ...this._headers,
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${token}`
       },
     });
   }
 
   saveMovie(movie, token) {
     return this._request(`/movies`, {
-      method: "POST",
+      method: 'POST',
       headers: {
         ...this._headers,
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify(movie),
+      body: JSON.stringify(movie)
     });
   }
 
   deleteMovie(movieId, token) {
     return this._request(`/movies/${movieId}`, {
-      method: "DELETE",
+      method: 'DELETE',
       headers: {
         ...this._headers,
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${token}`
       },
     });
   }
 }
 
 export const mainApi = new MainApi({
-  baseUrl: "https://api.fsashkaff.nomoredomainsmonster.ru",
+  baseUrl: 'http://localhost:3001',
   headers: {
-    "Content-Type": "application/json",
+    'Content-Type': 'application/json'
   },
 });
 
