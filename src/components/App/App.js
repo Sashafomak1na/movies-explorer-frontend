@@ -115,12 +115,11 @@ function App() {
       });
   }
 
-  function handleUpdateUser({ email, name }) {
+  function handleUpdateUser( name, email) {
     setIsLoading(true);
-    mainApi.udpateUser( email, name )
+    mainApi.udpateUser( name, email )
       .then(() => {
-        setCurrentUser({ email, name });
-        setErrorMessage('Данные успешно обновлены!')
+        setCurrentUser({ name, email });
       })
       .catch((error) => {
         setErrorMessage(error.message);

@@ -64,9 +64,10 @@
 }
 
 .profile__input-error_active {
-    top: 400px;
+    top: 415px;
     z-index: 2;
-    width: calc(100% - 60px);
+    /* width: calc(100% - 60px);
+    margin: 0 auto; */
 }
 
 .profile__buttons-block {

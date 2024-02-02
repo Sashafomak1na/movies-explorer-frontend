@@ -24,7 +24,7 @@ function Profile({ onUpdateUserInfo, signOut, isLoading, errorMessage }) {
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    onUpdateUserInfo({ email, name });
+    onUpdateUserInfo(name, email);
   }
   console.log(isDisabled);
   console.log(isValid);
