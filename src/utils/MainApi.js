@@ -114,7 +114,7 @@ class MainApi {
 }
 
 export const mainApi = new MainApi({
-  baseUrl: 'https://fsashkaff.nomoredomainsmonster.ru',
+  baseUrl: 'https://api.fsashkaff.nomoredomainsmonster.ru',
   headers: {
     'Content-Type': 'application/json'
   },
