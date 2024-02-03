@@ -38,18 +38,26 @@ function App() {
   const [currentUser, setCurrentUser] = useState({});
 
   useEffect(() => {
-    const jwt = localStorage.getItem("jwt");
-    if (jwt) {
+    const token = localStorage.getItem("jwt");
+    if (loggedIn) {
       userAuth
-        .getContent(jwt)
+        .getContent(token)
         .then((response) => {
-          setLoggedIn(true);
           setCurrentUser({
-            email: response.email,
             name: response.name,
+            email: response.email,
           });
         })
         .catch((err) => console.log(err));
+    }
+  }, [loggedIn]);
+
+  useEffect(() => {
+    const jwt = localStorage.getItem("jwt");
+    if (jwt) {
+      setLoggedIn(true);
+    } else {
+      setLoggedIn(false);
     }
   }, [navigate]);
 
@@ -120,6 +128,8 @@ function App() {
     mainApi.udpateUser( name, email )
       .then(() => {
         setCurrentUser({ name, email });
+        setErrorMessage('Данные успешно обновлены!');
+        setTimeout(resetErrorMessage, 3000);
       })
       .catch((error) => {
         setErrorMessage(error.message);
