@@ -5,6 +5,7 @@
     align-self: flex-start;
     cursor: pointer;
     background-color: transparent;
+    border: none;
 }
 
 .checkbox__switch {

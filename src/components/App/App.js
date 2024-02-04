@@ -72,12 +72,12 @@ function App() {
     resetErrorMessage();
   }, [resetErrorMessage, navigate]);
 
-  useEffect(() => {
-    document.addEventListener("keydown", handleEscapeClick);
-    return () => {
-      document.removeEventListener("keydown", handleEscapeClick);
-    };
-  });
+  // useEffect(() => {
+  //   document.addEventListener("keydown", handleEscapeClick);
+  //   return () => {
+  //     document.removeEventListener("keydown", handleEscapeClick);
+  //   };
+  // }, []);
 
   function handleRegister({ email, password, name }) {
     setIsLoading(true);
@@ -158,11 +158,11 @@ function App() {
     }
   }
 
-  function handleEscapeClick(evt) {
-    if (evt.key === "Escape") {
-      closeAllPopups();
-    }
-  }
+  // function handleEscapeClick(evt) {
+  //   if (evt.key === "Escape") {
+  //     closeAllPopups();
+  //   }
+  // }
 
   function checkToken() {
     const token = localStorage.getItem("jwt");
@@ -183,7 +183,9 @@ function App() {
   }
 
   useEffect(() => {
-    checkToken();
+    if (loggedIn) {
+      checkToken();
+    }
   }, []);
 
   const handleMenuPopupClick = () => setIsMenuPopupOpen(true);

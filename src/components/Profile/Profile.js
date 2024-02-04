@@ -12,6 +12,10 @@ function Profile({ onUpdateUserInfo, signOut, isLoading, errorMessage }) {
   const { email, name } = values;
   const [isDisabled, setIsDisabled] = useState(false);
 
+  function checkChangedSuccess() {
+    return errorMessage === "Данные успешно обновлены!";
+  }
+
   useEffect(() => {
     resetValidation({ email: currentUser.email, name: currentUser.name });
   }, [currentUser]);
@@ -32,7 +36,15 @@ function Profile({ onUpdateUserInfo, signOut, isLoading, errorMessage }) {
   return (
     <form className="profile register" onSubmit={handleSubmit} noValidate>
       {isLoading ? <Preloader /> : ""}
-      <h1 className="profile__title">Привет, {currentUser.name}!</h1>
+      <h1
+        className={`profile__title ${
+          checkChangedSuccess() && "profile__title_success"
+        }`}
+      >
+        {checkChangedSuccess()
+          ? `${errorMessage}`
+          : `Привет, ${currentUser.name}!`}
+      </h1>
       <fieldset className="profile__inputs-block">
         <label className="profile__label">
           <p className="profile__placeholder">Имя</p>
@@ -86,7 +98,9 @@ function Profile({ onUpdateUserInfo, signOut, isLoading, errorMessage }) {
         </label>
       </fieldset>
       <div className="profile__buttons-block">
-        <p className="register__error profile__error">{errorMessage}</p>
+        <p className="register__error profile__error">{`${
+          checkChangedSuccess() ? "" : errorMessage
+        }`}</p>
         <button
           className={`profile__edit-button ${
             !isValid && errors ? "profile__edit-button_disabled" : ""

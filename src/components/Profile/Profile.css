@@ -16,6 +16,10 @@
     color: #ffffff;
 }
 
+.profile__title_success {
+    color: #2be080;
+}
+
 .profile__inputs-block {
     width: 410px;
     margin: 0;
@@ -67,7 +71,7 @@
     top: 415px;
     z-index: 2;
     /* width: calc(100% - 60px);
-    margin: 0 auto; */
+      margin: 0 auto; */
 }
 
 .profile__buttons-block {
@@ -128,7 +132,7 @@
     font-weight: 500;
     transition: opacity 0.35s linear;
     cursor: pointer;
-    color: #EE3465;
+    color: #ee3465;
 }
 
 .profile__signout-button:hover {
@@ -173,6 +177,6 @@
     }
 
     .profile__input-error_active {
-       margin: 0;
+        margin: 0;
     }
 }

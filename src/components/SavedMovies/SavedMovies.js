@@ -6,22 +6,41 @@ import "./SavedMovies.css";
 import SearchForm from "../SearchForm/SearchForm";
 
 const SavedMovies = () => {
-  const [savesMovies, setSavesMovies] = useState([]);
+  const [savesMovies, setSavesMovies] = useState(setInitMovies());
   const [searchQuery, setSearchQuery] = useState("");
   const [shortFilm, setShortFilm] = useState(false);
 
+  function setInitMovies() {
+    return localStorage.getItem("savesMovies")
+      ? JSON.parse(localStorage.getItem("savesMovies"))
+      : [];
+  }
+
   useEffect(() => {
-    const jwt = localStorage.getItem("jwt");
-    mainApi
-      .getMovies(jwt)
-      .then((res) => {
-        setSavesMovies(res);
-        localStorage.setItem("savesMovies", JSON.stringify(res));
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    if (!localStorage.getItem("savesMovies"))
+      mainApi
+        .getMovies(localStorage.getItem("jwt"))
+        .then((res) => {
+          setSavesMovies(res);
+          localStorage.getItem("savesMovies", JSON.stringify(res));
+        })
+        .catch((err) => {
+          console.log(err);
+        });
   }, []);
+
+  // useEffect(() => {
+  //   const jwt = localStorage.getItem("jwt");
+  //   mainApi
+  //     .getMovies(jwt)
+  //     .then((res) => {
+  //       setSavesMovies(res);
+  //       localStorage.setItem("savesMovies", JSON.stringify(res));
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, []);
 
   function handleSearch() {
     const store = localStorage.getItem("savesMovies");
@@ -75,9 +94,11 @@ const SavedMovies = () => {
       <SearchForm
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
+        setInitMovies={setInitMovies}
         shortFilm={shortFilm}
         handleCheckBox={handleCheckBox}
         handleSearch={handleSearch}
+        
       />
       <MoviesCardList
         movies={savesMovies}

@@ -10,7 +10,9 @@ class MainApi {
         return res.json();
       }
       return Promise.reject(res);
-    });
+    }).catch((error) => {
+      console.error(error);
+      });
   }
 
   register(name, email, password) {

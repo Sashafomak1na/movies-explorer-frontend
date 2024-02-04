@@ -5,11 +5,11 @@ function NavTab() {
   return (
     <section className="navtab" aria-label="Навигация к блоку О проекте">
       {/* <div className="navtab__section"> */}
-        <button className="navtab__button-outside">
+        {/* <button className="navtab__button-outside"> */}
           <HashLink smooth to="#aboutProject" className="navtab__button">
             Узнать больше
           </HashLink>
-        </button>
+        {/* </button> */}
       {/* </div> */}
     </section>
   );

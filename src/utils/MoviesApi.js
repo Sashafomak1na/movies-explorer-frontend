@@ -10,7 +10,9 @@ class MoviesApi {
         return res.json();
       }
       return Promise.reject(`Error: ${res.status}`);
-    });
+    }).catch((error) => {
+      console.error(error);
+      });
   }
 
   getBeatMovies() {

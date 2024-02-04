@@ -2,7 +2,7 @@ import React from "react";
 
 function FilterType({ shortFilm, handleCheckBox }) {
   return (
-    <form className="checkbox">
+    <fieldset className="checkbox">
       <label className="checkbox__switch">
         <input
           className="checkbox__input"
@@ -13,7 +13,7 @@ function FilterType({ shortFilm, handleCheckBox }) {
         <span className="checkbox__slider"></span>
       </label>
       <p className="checkbox__text">Короткометражки</p>
-    </form>
+    </fieldset>
   );
 }
 
