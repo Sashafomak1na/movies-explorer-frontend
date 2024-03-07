@@ -1,0 +1,117 @@
+.navtab {
+  display: flex;
+  background-color: rgba(7, 48, 66, 1);
+  font-family: 'Inter', 'Arial', 'Helvetica', sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+}
+
+.navtab__section {
+  width: 129px;
+  height: 36px;
+  margin: 0 auto 75px 70px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  border: solid 1px #FFFFFF;
+  font-family: 'Inter', 'Arial', 'Helvetica', sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  transition: opacity 0.35s linear;
+  cursor: pointer;
+  color: #FFFFFF;
+}
+
+.navtab__button-outside {
+  width: 129px;
+  height: 36px;
+  margin: 0 auto 75px 70px;
+  padding: 0;
+  background-color: rgba(7, 48, 66, 1);
+  font-family: 'Inter', 'Arial', 'Helvetica', sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  border: solid 1px #FFFFFF;
+  transition: opacity 0.35s linear;
+  cursor: pointer;
+  border-radius: 3px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  
+}
+
+.navtab__button {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  background-color: transparent;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: #ffffff;
+  border: solid 1px #FFFFFF;
+  width: 129px;
+  height: 36px;
+  margin: 0 auto 75px 70px;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.35s linear;
+
+}
+
+.navtab__button:hover {
+  cursor: pointer;
+  opacity: 0.6;
+  transition: background-color ease-out 1s;
+}
+
+.navtab__button:active {
+  cursor: pointer;
+  opacity: 0.6;
+  transition: background-color ease-out 1s;
+}
+
+.navtab__button-on {
+  width: 129px;
+  height: 36px;
+  border: none;
+  color: #FFFFFF;
+
+
+}
+
+@media screen and (max-width: 768px) {
+  .navtab {
+    justify-content: center;
+  }
+
+  /* .navtab__section {
+    margin: 0 2px 75px 0;
+  } */
+
+  .navtab__button {
+    margin: 0 2px 75px 0;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  /* .navtab__button {
+    margin: 0;
+  } */
+
+  /* .navtab__section {
+    margin: 0 2px 28px 0;
+  } */
+
+  .navtab__button {
+    margin: 0 2px 28px 0;
+  }
+}
